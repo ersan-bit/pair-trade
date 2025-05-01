@@ -193,5 +193,15 @@ if st.button("Stratejiyi Çalıştır"):
     st.dataframe(df_trades)
 
     st.subheader("📈 PnL Özeti")
-    pnl_df = df_trades[["Kapanış P&L (%)", "Kapanış P&L (TL)"]]
-    st.dataframe(pnl_df.style.format({"Kapanış P&L (%)": "{:.2f}%", "Kapanış P&L (TL)": "₺{:.2f}"}))
+    df_trades = pd.DataFrame(transactions)
+
+    if not df_trades.empty:
+        
+       pnl_df = df_trades[["Kapanış P&L (%)", "Kapanış P&L (TL)"]]
+       st.dataframe(pnl_df.style.format({
+           "Kapanış P&L (%)": "{:.2f}%", 
+           "Kapanış P&L (TL)": "₺{:.2f}"
+       }))
+    else:
+        st.warning("⚠️ Seçilen tarihler veya parametrelerle işlem oluşmadı.")
+
