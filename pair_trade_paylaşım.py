@@ -51,6 +51,10 @@ if st.button("Stratejiyi Çalıştır"):
         auto_adjust=True,
         progress=False
     )
+    if df_hourly.empty:
+        
+        st.error("⛔ Saatlik veri alınamadı. Muhtemelen YFinance limitine ulaşıldı. Birkaç saat bekleyip tekrar deneyin.")
+        st.stop()
 
     if df_hourly.index.tz is None:
         df_hourly.index = df_hourly.index.tz_localize('UTC')
