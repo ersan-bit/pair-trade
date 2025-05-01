@@ -27,7 +27,7 @@ with col1:
 
 with col2:
     min_spread = st.number_input("Minimum Fark (%)", value=0.0006, format="%.5f")
-    start_date = st.date_input("Başlangıç Tarihi", value=datetime.today() - timedelta(days=600))
+    start_date = st.date_input("Başlangıç Tarihi", value=datetime.today() - timedelta(days=400))
     end_date = st.date_input("Bitiş Tarihi", value=datetime.today())
 
 if st.button("Stratejiyi Çalıştır"):
